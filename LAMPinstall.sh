@@ -2,12 +2,15 @@
 
 # UBUNTU SERVER LAMP INSTALL SCRIPT
 
+# SET NON INTERACTIVE SCRIPT
+export DEBIAN_FRONTEND=noninteractive
+
 # UPDATE UBUNTU 
 apt update
 apt upgrade
 
 # DOWNLOAD LAMP PACKAGES SILENTLY
-DEBIAN_FRONTEND=noninteractive apt install mariadb-server apache2 phpmyadmin libapache2-mod-php -y
+apt install mariadb-server apache2 phpmyadmin libapache2-mod-php -y
 
 # ALLOW APACHE IN FIREWALL
 ufw allow 'Apache'
@@ -28,7 +31,7 @@ systemctl reload apache2
 
 # INSTALL SAKILA SAMPLE DB
 curl https://downloads.mysql.com/docs/sakila-db.tar.gz
-tar -xvzf community_images.tar.gz -C ~/Documents/
+tar -xvzf community_images.tar.gz
 mysql
-SOURCE ~/Documents/sakila-db/sakila-schema.sql;
-SOURCE ~/Documents/sakila-db/sakila-data.sql
+SOURCE ~/sakila-db/sakila-schema.sql;
+SOURCE ~/sakila-db/sakila-data.sql
