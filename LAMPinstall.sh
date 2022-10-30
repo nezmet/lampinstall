@@ -30,8 +30,7 @@ mysql -u root -e "SET PASSWORD FOR root@'localhost' = PASSWORD('admin');"
 systemctl reload apache2
 
 # INSTALL SAKILA SAMPLE DB
-curl https://downloads.mysql.com/docs/sakila-db.tar.gz
+wget https://downloads.mysql.com/docs/sakila-db.tar.gz
 tar -xvzf sakila-db.tar.gz
-mysql
-SOURCE ~/sakila-db/sakila-schema.sql;
-SOURCE ~/sakila-db/sakila-data.sql
+mysql < sakila-db/sakila-schema.sql;
+mysql < sakila-db/sakila-data.sql
