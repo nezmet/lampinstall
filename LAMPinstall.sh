@@ -31,7 +31,7 @@ systemctl reload apache2
 
 # INSTALL SAKILA SAMPLE DB
 curl https://downloads.mysql.com/docs/sakila-db.tar.gz
-tar -xvzf community_images.tar.gz
+tar -xvzf sakila-db.tar.gz
 mysql
 SOURCE ~/sakila-db/sakila-schema.sql;
 SOURCE ~/sakila-db/sakila-data.sql
