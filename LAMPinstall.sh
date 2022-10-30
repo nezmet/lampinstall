@@ -5,10 +5,15 @@
 # 
 apt update
 apt upgrade
-apt install mariadb-server apache2 phpmyadmin libapache2-mod-php -y
+DEBIAN_FRONTEND=noninteractive apt install mariadb-server apache2 phpmyadmin libapache2-mod-php -y
 ufw allow 'Apache'
 systemctl enable apache2
 systemctl enable mariadb
-service apache2 restart
+
+# CONFIGURE PHPMYADMIN FOR APACHE2
+cp /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
+a2enconf phpmyadmin
+
+systemctl reload apache2
 
 
