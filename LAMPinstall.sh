@@ -7,7 +7,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 # UPDATE UBUNTU 
 apt update
-apt upgrade
+apt upgrade -y
 
 # DOWNLOAD LAMP PACKAGES SILENTLY
 apt install mariadb-server apache2 phpmyadmin libapache2-mod-php -y
